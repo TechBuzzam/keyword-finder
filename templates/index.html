@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Keyword Finder</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8">
+    <title>StudyConcepts Keyword Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<div class="box">
-    <h2>Keyword Finder</h2>
+
+<div class="container">
+    <h1>StudyConcepts Keyword Finder</h1>
+    <p class="subtitle">
+        Upload a Google Trends CSV file to discover low-competition, educational keyword opportunities.
+    </p>
+
     <form method="post" enctype="multipart/form-data">
-        <label>Google Trends CSV</label>
-        <input type="file" name="trends" required>
-        <button type="submit">Find Opportunities</button>
+        <div class="upload-box">
+            <label for="trends">Google Trends CSV</label>
+            <input type="file" name="trends" id="trends" accept=".csv" required>
+        </div>
+
+        <button type="submit" class="btn">Find Keyword Opportunities</button>
     </form>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p class="error">{{ message }}</p>
+            {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
 </div>
+
 </body>
 </html>
