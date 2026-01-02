@@ -1,4 +1,25 @@
+# Python
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.envrc
+
+# Flask / App folders
 uploads/
 outputs/
-.env
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
